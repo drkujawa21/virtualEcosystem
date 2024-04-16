@@ -1,0 +1,1 @@
+Project is specified [here](https://github.com/uiowa-cs-3210-spr24/project-spec). If you can't see this repo, it means you haven't been added to the class organization yet. This is probably because you haven't given us your Github username. Please do this promptly on Slack so we can give you access to the project spec.
