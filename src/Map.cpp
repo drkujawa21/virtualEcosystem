@@ -14,3 +14,15 @@ void Map::printSpecies(){
         std::cout << listSpecies[i] << std::endl;
     }
 }
+
+void Map::moveAnimal(Species specie){
+    //move an animal once
+}
+
+std::vector<Species> Map::createSpecies(){
+    for(int i = 0; i < mapRows.size(); i++){
+        if(mapRows[i] != " "){
+            
+        }
+    }
+}

@@ -9,13 +9,26 @@ using namespace std;
 The main function to run the ecosystem.
 */
 
+//call this function to run one iteration on the ecosystem, (all animals take one turn)
+void nextIteration(Map m){
+    //m.moveAnimal(Species s);
+}
+
 int main(){
     vector<string> speciesTxt;
     vector<string> mapTxt;
+    string mapFilePath;
+    string speciesFilePath;
     ifstream speciesFile;
     ifstream mapFile;
-    mapFile.open("map.txt");//moved txt files out of input because I could not access them
-    speciesFile.open("species.txt");
+
+    cout << "What is the path for the map file you would like to use?: ";
+    cin >> mapFilePath;
+    cout << "What is the path for the species file you would ike to use?: ";
+    cin >> speciesFilePath;
+
+    mapFile.open(mapFilePath);//moved txt files out of input because I could not access them
+    speciesFile.open(speciesFilePath);
 
     //These ifs check if the file is opened or not
     if(!speciesFile){
@@ -40,7 +53,7 @@ int main(){
 
     map.printMap();
     map.printSpecies();
-    cout << "\nwhat the sigma" << endl;
+    //cout << "\nwhat the sigma" << endl;
 
     return 0;
 }

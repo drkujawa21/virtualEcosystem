@@ -11,3 +11,7 @@ Need to finish parsing the .txt  files before anythign else.
 Day 3:
 Figured out how to read from file and put it into a map object. Created print functions for map.h. 
 Need to next figure out how to move a species and create species from the species list in map. Might need to rearrange class hierarchy. !!!
+
+Day 4:
+Didnt get as much work done. 
+Next goal is to figure out how to store each specimen and differentiate them from each other. A possible solution is to give each specimen a coordinate pair (ex. [row, col]).

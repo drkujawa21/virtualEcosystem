@@ -11,6 +11,13 @@ Library for the map. Uses a vectors to build the map.
 
 class Map{
     public:
+    enum Direction{
+        up,
+        down,
+        left,
+        right,
+        stay
+    };
     int numRows, numCols;
 
     std::vector<std::string> mapRows;//the map stored into a vector of strings
@@ -60,10 +67,11 @@ class Map{
     //Prints the current list of species
     void printSpecies();
 
-};
+    void moveAnimal(Species specie);
 
-class Consume : public Movement{
-    public:
-    
+    //The purpose of this function is to iterate through the map and find all current
+    //existing species in the map. Once they are found, return a vector of species.
+    std::vector<Species> createSpecies();
+
 };
 #endif
