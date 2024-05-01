@@ -15,3 +15,12 @@ Need to next figure out how to move a species and create species from the specie
 Day 4:
 Didnt get as much work done. 
 Next goal is to figure out how to store each specimen and differentiate them from each other. A possible solution is to give each specimen a coordinate pair (ex. [row, col]).
+
+
+Day 5:
+Swapped to using unordered_map. Very helpful.
+Trying to figure out how to store map.txt into an unordered_map.
+Left off at main.cpp, continue work on Map.h. Pretty sure Species.h can wait for now.
+
+Day 6:
+Not much work. Day off lol. Need to figure out how to compare a char to other chars (if char is equal to " " or not).

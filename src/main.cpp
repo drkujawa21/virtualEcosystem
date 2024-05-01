@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <unordered_map>
 using namespace std;
 
 /*
@@ -15,8 +16,8 @@ void nextIteration(Map m){
 }
 
 int main(){
+    vector<vector<string>> coords;
     vector<string> speciesTxt;
-    vector<string> mapTxt;
     string mapFilePath;
     string speciesFilePath;
     ifstream speciesFile;
@@ -40,20 +41,38 @@ int main(){
         return 1;
     }
 
+    //This while loop iterates through each line of the map.txt file and copies them
+    //into a local variable.
     string temp;
     while(getline(mapFile, temp)){
-        mapTxt.push_back(temp);
+        vector<string> line(temp.size(), " ");
+        for(int i = 0; i < temp.size(); i++){
+            line.at(i) = temp[i];
+        }
+        coords.push_back(line);
     }
 
-    while(getline(speciesFile, temp)){
-        speciesTxt.push_back(temp);
+    string newTemp;
+    while(getline(speciesFile, newTemp)){
+        //cout << temp << endl;
+        speciesTxt.push_back(newTemp);
     }
 
-    Map map(mapTxt,speciesTxt);
+    //Testing
+    /*cout << "\nChecking coords..." << endl;
+    cout << "Size of coords: " << coords.size() << endl;
+    for( vector<string> test : coords){
+        for(string c : test){
+            cout << "Text: " << c;
+        }
+        cout << endl;
+    }
+    cout << endl;*/
+
+    Map map(coords, speciesTxt);
 
     map.printMap();
     map.printSpecies();
-    //cout << "\nwhat the sigma" << endl;
 
     return 0;
 }
