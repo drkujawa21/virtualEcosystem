@@ -10,11 +10,6 @@ using namespace std;
 The main function to run the ecosystem.
 */
 
-//call this function to run one iteration on the ecosystem, (all animals take one turn)
-void nextIteration(Map m){
-    //m.moveAnimal(Species s);
-}
-
 int main(){
     vector<vector<string>> coords;
     vector<string> speciesTxt;
@@ -22,6 +17,8 @@ int main(){
     string speciesFilePath;
     ifstream speciesFile;
     ifstream mapFile;
+
+    cout << "Hello! Welcome to my virtual ecosystem." << endl;
 
     cout << "What is the path for the map file you would like to use?: ";
     cin >> mapFilePath;
@@ -46,7 +43,7 @@ int main(){
     string temp;
     while(getline(mapFile, temp)){
         vector<string> line(temp.size(), " ");
-        for(int i = 0; i < temp.size(); i++){
+        for(long unsigned int i = 0; i < temp.size(); i++){
             line.at(i) = temp[i];
         }
         coords.push_back(line);
@@ -72,7 +69,23 @@ int main(){
     Map map(coords, speciesTxt);
 
     map.printMap();
-    map.printSpecies();
+    //map.printSpecies();
 
+    int numIterate;
+    string continueMap;
+    cout << "Would you like to start the ecosystem? Type 'y' for yes and 'n' for no: ";
+    cin >> continueMap;
+    while(continueMap.compare("y") == 0){
+        cout << "\nHow many iterations would you like to run?: ";
+        cin >> numIterate;
+        for(int i = 0; i < numIterate; i++){
+            map.iterateEcosystem();
+        }
+        map.printMap();
+        cout << "Would you like to continue the simulation? Type 'y' for yes and 'n' for no: ";
+        cin >> continueMap;
+    }
+    cout << "Goodbye." << endl;
+    
     return 0;
 }
