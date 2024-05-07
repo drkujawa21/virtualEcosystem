@@ -72,18 +72,24 @@ int main(){
     //map.printSpecies();
 
     int numIterate;
-    string continueMap;
-    cout << "Would you like to start the ecosystem? Type 'y' for yes and 'n' for no: ";
-    cin >> continueMap;
-    while(continueMap.compare("y") == 0){
-        cout << "\nHow many iterations would you like to run?: ";
-        cin >> numIterate;
-        for(int i = 0; i < numIterate; i++){
+    int choice = 0;
+    while(choice != 3){
+        cout << "\n1. Run one iteration. " << endl;
+        cout << "2. Run multiple iterations. " << endl;
+        cout << "3. Exit simulation. " << endl;
+        cin >> choice;
+        if(choice == 1){
             map.iterateEcosystem();
+            map.printMap();
         }
-        map.printMap();
-        cout << "Would you like to continue the simulation? Type 'y' for yes and 'n' for no: ";
-        cin >> continueMap;
+        else if(choice == 2){
+            cout << "How many iterations would you like to run?: ";
+            cin >> numIterate;
+            for(int i = 0; i < numIterate; i++){
+                map.iterateEcosystem();
+            }
+            map.printMap();
+        }
     }
     cout << "Goodbye." << endl;
     

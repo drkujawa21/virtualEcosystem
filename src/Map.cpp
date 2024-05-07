@@ -419,6 +419,7 @@ void Map::moveAnimal(Species animalC, std::vector<bool> moves){
     //std::cout << "\nStarting the move process. ";
     bool hasMoved = false;
     while(hasMoved == false){
+        std::srand(std::time(nullptr));
         int rand = std::rand()%4;
         //this if statement basically looks for a move, and checks if it is possible
         if(moves.at(rand) == true){
@@ -553,7 +554,6 @@ void Map::iterateEcosystem(){
     }
     std::vector<bool> aMoves(4,false);
     for(Species a : currentAnimals){
-        std::srand(std::time(nullptr));
         if(a.getCurrentEnergy() == 0){
             killAnimal(a);
         }
@@ -603,7 +603,6 @@ void Map::printSpecies(){
 }
 
 void Map::printMap(){
-    std::cout << "This is the current map: " << std::endl;
     for(std::vector<std::string> line : map){
         for(std::string c : line){
             std::cout << c;
